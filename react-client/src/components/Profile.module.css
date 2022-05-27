@@ -1,14 +1,17 @@
 .content{
      grid-area: c;
-     background-color: chocolate;
+     background-color: #393A40;
+     border: 5px solid #2c2d31;
 }
 .content_img{
      width:100%;
-     height: 250px;
+     height: 200px;
 }
 .profile_photo{
-     width: 20%;
+     width: 10%;
+     border-radius: 100px;
+     margin-left: 4%;
 }
 .item{
-     color:greenyellow;
+     
 }

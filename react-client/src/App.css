@@ -9,5 +9,8 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
 }
+body{
+  background-color: #393A40;
+}
 
 
