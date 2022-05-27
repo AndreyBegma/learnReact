@@ -1,0 +1,14 @@
+.content{
+     grid-area: c;
+     background-color: chocolate;
+}
+.content_img{
+     width:100%;
+     height: 250px;
+}
+.profile_photo{
+     width: 20%;
+}
+.item{
+     color:greenyellow;
+}

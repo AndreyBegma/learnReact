@@ -9,21 +9,5 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
 }
-.header{
-  grid-area: h;
-  background-color: aquamarine;
-}
-.logo-img{
-  width: 100px;
-}
-.nav{
-  grid-area: n;
-  background-color: green;
-}
-.content{
-  grid-area: c;
-  background-color: chocolate;
-}
-.content-img{
-  width:100%;
-}
+
+

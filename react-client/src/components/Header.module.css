@@ -1,0 +1,7 @@
+.header{
+     grid-area: h;
+     background-color: aquamarine;
+   }
+   .logo_img{
+     width: 100px;
+   }
