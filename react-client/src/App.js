@@ -1,5 +1,5 @@
 import './App.css'
-
+import Header from './Header'
 
 const App = () => {
   return(
@@ -9,12 +9,5 @@ const App = () => {
   )
 }
 
-const Header = () => {
-  return(
-    <div className="Header">
-      This is header
-    </div>
-  )
-}
 
 export default App
