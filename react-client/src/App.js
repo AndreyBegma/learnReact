@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 
 
 const App = () => {
@@ -8,8 +8,7 @@ const App = () => {
         <li>ff</li>
       </ul>
     </div>
-
   )
 }
 
-export default App;
+export default App
