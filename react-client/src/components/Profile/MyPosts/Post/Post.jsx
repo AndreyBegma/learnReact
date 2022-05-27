@@ -2,11 +2,10 @@ import React from "react"
 
 import styles from './Post.module.css'
 
-const Post = () => { 
-
+const Post = (props) => {
      return(
           <div className={styles.item}>
-               post 1
+               {props.text}
                <div>
                     <span>Like</span>
                </div>

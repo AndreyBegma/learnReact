@@ -15,8 +15,8 @@ const MyPosts = () => {
                     <button>Send</button>
                </div>
                <div className={styles.posts}>
-                    <Post/>
-                    <Post/>
+                    <Post text="hello" />
+                    <Post text="What are you say?"/>
                </div>
           </div>
      )
