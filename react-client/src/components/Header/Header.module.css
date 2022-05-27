@@ -1,0 +1,9 @@
+.header{
+     grid-area: h;
+     background-color: #2c2d31;
+   }
+   .logo_img{
+      margin-left: 3%;
+      width: 4%;
+      height: 90%;
+   }
