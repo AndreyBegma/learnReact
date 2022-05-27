@@ -4,9 +4,15 @@ import './App.css'
 const App = () => {
   return(
     <div className="blockTest">
-      <ul>
-        <li>ff</li>
-      </ul>
+      <Header />
+    </div>
+  )
+}
+
+const Header = () => {
+  return(
+    <div className="Header">
+      This is header
     </div>
   )
 }
