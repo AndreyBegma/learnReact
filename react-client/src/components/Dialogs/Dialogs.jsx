@@ -27,19 +27,27 @@ const Dialogs = (props) => {
           {id:1, name:'Andrey'},
           {id:2, name:'Dima'}
      ]
+
+     let dialogsGenereted = dialogsData.map((infoChat) => {
+          return <DialogItem name={infoChat.name} id={infoChat.id}/>
+     })
+     
      let messagesData = [
           {id:1,text:'hey'},
           {id:2,text:'WTF?!'}
      ]
+
+     let messagesGenereted = messagesData.map((messageInfo) => { 
+          return <Message message={messageInfo.text}/>
+     })
+
      return(
           <div className={styles.dialogs}>
                <div className={styles.dialogs_item}>
-                    <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                    <DialogItem name="Dima" id="2"/>
+                   {dialogsGenereted}
                </div>
                <div className={styles.messages}>
-                    <Message message={messagesData[0].text}/>
-                    <Message message={messagesData[1].text}/>
+                    {messagesGenereted}
                </div>
           </div>
      )
