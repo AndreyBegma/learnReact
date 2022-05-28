@@ -6,7 +6,7 @@ const Dialogs = (props) => {
 
      return(
           <div>
-               Dialogs
+               Dialogs 
           </div>
      )
 }
