@@ -10,6 +10,6 @@
      margin-left: 10%;
      color: white;
 }
-.item.active{
+.item a.active{
      color:gold;
 }

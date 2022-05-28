@@ -10,22 +10,18 @@ import Dialogs from './components/Dialogs/Dialogs'
 const App = () => {
 
   return(
-    <div className='app-wrapper'>
-      <Header/>
-      <Navbar/>
-      <div className='app-wrapper-content'>
-        <BrowserRouter>
-          <div>
+    <BrowserRouter>
+      <div className='app-wrapper'>
+        <Header/>
+        <Navbar/>
+        <div className='app-wrapper-content'>
             <Routes>
               <Route path="/dialogs" element={<Dialogs/>}/>
               <Route path="/profile" element={<Profile/>}/>
             </Routes>
-          </div>
-        </BrowserRouter>
-        {/*<Profile/>*/}
-        {/*<Dialogs/>*/}
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 
