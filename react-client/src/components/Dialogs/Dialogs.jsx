@@ -5,7 +5,9 @@ import styles from './Dialogs.module.css'
 const Dialogs = (props) => {
 
      return(
-          <div></div>
+          <div>
+               Dialogs
+          </div>
      )
 }
 

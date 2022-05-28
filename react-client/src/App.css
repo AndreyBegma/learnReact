@@ -9,6 +9,13 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
 }
+
+.app-wrapper-content{
+  grid-area: c;
+  background-color: #393A40;
+  border: 5px solid #2c2d31;
+}
+
 body{
   background-color: #393A40;
 }
