@@ -6,6 +6,10 @@ import styles from './MyPosts.module.css'
 
 
 const MyPosts = () => {
+     let postsData = [
+          {id:1,postText:'hello'},
+          {id:2,postText:'What are you say?'}
+     ]
      return(
           <div>
                My posts
@@ -16,8 +20,8 @@ const MyPosts = () => {
                     </div>
                </div>
                <div className={styles.posts}>
-                    <Post text="hello" />
-                    <Post text="What are you say?"/>
+                    <Post className={styles.post} text={postsData[0].postText}/>
+                    <Post className={styles.post} text={postsData[1].postText}/>
                </div>
           </div>
      )

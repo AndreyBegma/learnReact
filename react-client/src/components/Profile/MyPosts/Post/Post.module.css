@@ -1,3 +1,6 @@
-.item{ 
+.item{
+     margin-bottom: 2%; 
+     width:20%;
      color:#FFF;
+     border: 2px solid #2C2D31;
 }
