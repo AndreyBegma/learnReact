@@ -12,7 +12,7 @@ const MyPosts = () => {
      ]
 
      let postsGenereted = postsData.map((postInfo) => {
-          return <Post className={styles.post} text={postInfo.postText}/>
+          return <Post key={postInfo.id} className={styles.post} text={postInfo.postText}/>
      })
      return(
           <div>
