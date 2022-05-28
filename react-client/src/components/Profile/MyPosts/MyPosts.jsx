@@ -10,6 +10,10 @@ const MyPosts = () => {
           {id:1,postText:'hello'},
           {id:2,postText:'What are you say?'}
      ]
+
+     let postsGenereted = postsData.map((postInfo) => {
+          return <Post className={styles.post} text={postInfo.postText}/>
+     })
      return(
           <div>
                My posts
@@ -20,8 +24,7 @@ const MyPosts = () => {
                     </div>
                </div>
                <div className={styles.posts}>
-                    <Post className={styles.post} text={postsData[0].postText}/>
-                    <Post className={styles.post} text={postsData[1].postText}/>
+                    {postsGenereted}
                </div>
           </div>
      )
