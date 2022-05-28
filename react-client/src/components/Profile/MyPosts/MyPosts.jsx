@@ -11,7 +11,9 @@ const MyPosts = () => {
                My posts
                <div>
                     <textarea></textarea>
-                    <button>Send</button>
+                    <div>
+                         <button>Send</button>
+                    </div>
                </div>
                <div className={styles.posts}>
                     <Post text="hello" />
