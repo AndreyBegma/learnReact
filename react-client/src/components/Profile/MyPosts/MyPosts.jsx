@@ -5,13 +5,8 @@ import Post from "./Post/Post";
 import styles from './MyPosts.module.css'
 
 
-const MyPosts = () => {
-     let postsData = [
-          {id:1,postText:'hello'},
-          {id:2,postText:'What are you say?'}
-     ]
-
-     let postsGenereted = postsData.map((postInfo) => {
+const MyPosts = (props) => {
+     let postsGenereted = props.postsData.map((postInfo) => {
           return <Post key={postInfo.id} className={styles.post} text={postInfo.postText}/>
      })
      return(
