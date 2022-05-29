@@ -15,7 +15,7 @@ const Profile = (props) => {
         <img className={styles.content_img} src="https://wallpapercave.com/wp/Jg14FgM.jpg"/>
       </div>
       <ProfileInfo profilePhoto={profilePhoto}/>
-      <MyPosts postsData={props.postsData}/>
+      <MyPosts postsData={props.postsData} addPost={props.addPost}/>
    </div>)
 }
 

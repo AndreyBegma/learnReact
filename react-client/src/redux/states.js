@@ -1,3 +1,5 @@
+import {reRednderEntireTree} from "../render"
+
 let state = {
      postsData: [
           {id:1,postText:'hello'},
@@ -12,6 +14,15 @@ let state = {
           {id:2,text:'WTF?!'}
      ]
 
+}
+
+export let addPost = (postMessage) => {
+     let newPost = {
+          id:5,
+          postText: postMessage,
+     }
+     state.postsData.push(newPost)
+     reRednderEntireTree(state)
 }
 
 export default state
