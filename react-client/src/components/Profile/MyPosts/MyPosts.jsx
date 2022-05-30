@@ -9,19 +9,25 @@ const MyPosts = (props) => {
      let postsGenereted = props.postsData.map((postInfo) => {
           return <Post key={postInfo.id} className={styles.post} text={postInfo.postText}/>
      })
-
      let newPostElement = React.createRef()
 
      let addPostClick = () => { 
-          let textPost = newPostElement.current.value 
-          props.addPost(textPost)
+          props.addPost()
+          props.updateNewPost('')
      } 
+
+     let onPostChange = () => {
+          let text = newPostElement.current.value 
+          props.updateNewPost(text)
+     }
 
      return(
           <div>
                My posts
                <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea 
+                         ref={newPostElement} onChange={onPostChange} value={props.newPostText}
+                    />
                     <div>
                          <button onClick = {addPostClick}>Send</button>
                     </div>
