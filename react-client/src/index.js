@@ -5,14 +5,9 @@ import ReactDOM from "react-dom/client"
 import './index.css'
 
 import App from './App'
-import { addPost, updateNewPost, subscribe } from "./redux/states"
 
 
-import state from './redux/states';
-
-//import {reRednderEntireTree} from './render.js'
-
-
+import store from './redux/states';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -20,16 +15,16 @@ export let reRednderEntireTree = () => {
      root.render(
     <React.StrictMode>
       <App 
-        addPost={addPost} postsData={state.postsData} dialogsData={state.dialogsData} 
-        messagesData={state.messagesData} newPostText={state.newPostText}
-        updateNewPost={updateNewPost}
+        addPost={store.addPost.bind(store)} postsData={store._state.postsData}
+        dialogsData={store._state.dialogsData} messagesData={store._state.messagesData}
+        newPostText={store._state.newPostText} updateNewPost={store.updateNewPost.bind(store)}
       />
     </React.StrictMode>
      ) 
 }
 
-reRednderEntireTree(state) 
+reRednderEntireTree(store.getState()) 
 
-subscribe(reRednderEntireTree)
+store.subscribe(reRednderEntireTree)
 
 reportWebVitals();
