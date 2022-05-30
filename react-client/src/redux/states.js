@@ -1,4 +1,6 @@
-import {reRednderEntireTree} from "../render"
+let reRednderEntireTree = () => {
+     console.log("state changed")
+}
 
 let state = {
      newPostText:'new post text',
@@ -17,18 +19,22 @@ let state = {
 
 }
 
-export let addPost = () => {
+export const addPost = () => {
      let newPost = {
           id:5,
           postText: state.newPostText
      }
      state.postsData.push(newPost)
-     reRednderEntireTree(state)
+     reRednderEntireTree()
 }
 
-export let updateNewPost = (newText) => {
+export const updateNewPost = (newText) => {
      state.newPostText = newText
-     reRednderEntireTree(state)
+     reRednderEntireTree()
+}
+
+export const subscribe = (observer) => {
+     reRednderEntireTree = observer //--- pattern observer 
 }
 
 export default state
