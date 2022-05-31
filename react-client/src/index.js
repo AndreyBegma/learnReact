@@ -11,13 +11,12 @@ import store from './redux/states';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-export let reRednderEntireTree = () => {     
+export let reRednderEntireTree = (state) => {     
      root.render(
     <React.StrictMode>
       <App 
-        addPost={store.addPost.bind(store)} postsData={store._state.postsData}
-        dialogsData={store._state.dialogsData} messagesData={store._state.messagesData}
-        newPostText={store._state.newPostText} updateNewPost={store.updateNewPost.bind(store)}
+        state={state}
+        dispatch = {store.dispatch.bind(store)}
       />
     </React.StrictMode>
      ) 

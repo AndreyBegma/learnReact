@@ -6,19 +6,23 @@ import styles from './MyPosts.module.css'
 
 
 const MyPosts = (props) => {
-     let postsGenereted = props.postsData.map((postInfo) => {
-          return <Post key={postInfo.id} className={styles.post} text={postInfo.postText}/>
+     let postsGenereted = props.posts.map((postInfo) => {
+          return <Post key={postInfo.id} className={styles.post} text={postInfo.message}/>
      })
      let newPostElement = React.createRef()
 
      let addPostClick = () => { 
-          props.addPost()
-          props.updateNewPost('')
+          props.dispatch({
+               type:'ADD-POST',
+          })
      } 
 
      let onPostChange = () => {
           let text = newPostElement.current.value 
-          props.updateNewPost(text)
+          props.dispatch({
+               type:'UPDATE-NEW-POST-TEXT',
+               newText:text
+          })
      }
 
      return(
