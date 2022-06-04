@@ -42,6 +42,16 @@ let store = {
           this._state.profilePage.newPostText = newText
           this._callSubscriber(this._state)
      },
+     _updateNewMessageBody(body){
+          this._state.dialogsPage.newMessageText = body
+          this._callSubscriber(this._state)
+     },
+     _sendMessage(){
+          let body = this._state.dialogsPage.newMessageText
+          this._state.dialogsPage.newMessageText = ''
+          this._state.dialogsPage.messages.push({id:4, message:body})
+          this._callSubscriber(this._state)
+     },
      subscribe(observer){
           this._callSubscriber = observer //--- pattern observer 
      },
@@ -54,13 +64,9 @@ let store = {
           } else if (action.type === UPDATE_NEW_POST_TEXT){
                this._updateNewPost(action.newText)
           } else if (action.type === UPDATE_NEW_MESSAGE_BODY){
-               this._state.dialogsPage.newMessageText = action.body
-               this._callSubscriber(this._state)
+               this._updateNewMessageBody(action.body)
           } else if (action.type === SEND_MESSAGE){
-               let body = this._state.dialogsPage.newMessageText
-               this._state.dialogsPage.newMessageText = ''
-               this._state.dialogsPage.messages.push({id:4, message:body})
-               this._callSubscriber(this._state)
+               this._sendMessage()
           }
 
      } 
