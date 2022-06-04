@@ -1,7 +1,6 @@
-let ADD_POST='ADD-POST'
-let UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
-let UPDATE_NEW_MESSAGE_BODY ='UPDATE-NEW-MESSAGE-BODY'
-let SEND_MESSAGE = 'SEND-MESSAGE'
+import {dialogsReducer} from './dialogReducer'
+import {profileReducer} from './profileReducer'
+import {sidebarReducer} from './sidebarReducer'
 
 let store = {
      _state:{
@@ -28,30 +27,6 @@ let store = {
      _callSubscriber(){
           console.log("state changed")
      },
-     
-     _addPost(){
-          let newPost = {
-               id:5,
-               message: this._state.profilePage.newPostText
-          }
-          this._state.profilePage.posts.push(newPost)
-          this._state.profilePage.newPostText = ''
-          this._callSubscriber(this._state)
-     },
-     _updateNewPost(newText){
-          this._state.profilePage.newPostText = newText
-          this._callSubscriber(this._state)
-     },
-     _updateNewMessageBody(body){
-          this._state.dialogsPage.newMessageText = body
-          this._callSubscriber(this._state)
-     },
-     _sendMessage(){
-          let body = this._state.dialogsPage.newMessageText
-          this._state.dialogsPage.newMessageText = ''
-          this._state.dialogsPage.messages.push({id:4, message:body})
-          this._callSubscriber(this._state)
-     },
      subscribe(observer){
           this._callSubscriber = observer //--- pattern observer 
      },
@@ -59,6 +34,10 @@ let store = {
           return this._state
      },
      dispatch(action){
+          this._state.profilePage = profileReducer(this._state.profilePage, action)
+          this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action)
+          this._callSubscriber(this._state)
+          /*dialogsReducer(this._state.dialogsPage, action)
           if (action.type === ADD_POST){
                this._addPost()
           } else if (action.type === UPDATE_NEW_POST_TEXT){
@@ -67,20 +46,10 @@ let store = {
                this._updateNewMessageBody(action.body)
           } else if (action.type === SEND_MESSAGE){
                this._sendMessage()
-          }
-
+          }*/
+          
      } 
 }
-
-export const addPostActionCreator = () => ({type:ADD_POST})
-
-export const updateNewPostTextActionCreator = (text) =>
-     ({type:UPDATE_NEW_POST_TEXT,newText: text})
-
-export const sendMessageCreator = () => ({type:SEND_MESSAGE})
-
-export const updateNewBodyMessageBodyCreator = (text) => 
-     ({type:UPDATE_NEW_MESSAGE_BODY, body:text})
 
 export default store
 window.store = store
