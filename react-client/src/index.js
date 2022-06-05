@@ -7,7 +7,7 @@ import './index.css'
 import App from './App'
 
 
-import store from './redux/states';
+import store from './redux/redux-store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -24,6 +24,9 @@ export let reRednderEntireTree = (state) => {
 
 reRednderEntireTree(store.getState()) 
 
-store.subscribe(reRednderEntireTree)
+store.subscribe(()=>{
+  let state = store.getState()
+  reRednderEntireTree(state)
+})
 
 reportWebVitals();
