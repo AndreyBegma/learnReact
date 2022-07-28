@@ -25,11 +25,16 @@ let updateNewPost = (state,newText) =>{
 
 export const profileReducer = (state = initialState, action) => {
      switch(action.type){
-          case ADD_POST: addPost(state)
-          case UPDATE_NEW_POST_TEXT: updateNewPost(state, action.newText)
-          default: console.log('Error in profile reducer')
+          case ADD_POST:
+               {addPost(state)
+               return state}
+          case UPDATE_NEW_POST_TEXT: 
+               {updateNewPost(state, action.newText)
+               return state}
+          default: 
+               {console.log('Error in profile reducer')
+               return state}
      }
-     return state
 }
 
 export const addPostActionCreator = () => ({type:ADD_POST})

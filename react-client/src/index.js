@@ -15,6 +15,7 @@ export let reRednderEntireTree = (state) => {
      root.render(
     <React.StrictMode>
       <App 
+        store = {store}
         state={state}
         dispatch = {store.dispatch.bind(store)}
       />
@@ -24,8 +25,9 @@ export let reRednderEntireTree = (state) => {
 
 reRednderEntireTree(store.getState()) 
 
-store.subscribe(()=>{
+store.subscribe(() => {
   let state = store.getState()
+  console.log(store.getState())
   reRednderEntireTree(state)
 })
 

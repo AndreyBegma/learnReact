@@ -1,9 +1,9 @@
 import React from "react"
 
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
-import MyPosts from "./MyPosts/MyPosts"
 
 import styles from './Profile.module.css'
+import MyPostsContainer from "./MyPosts/MyPostsContainer"
 
 
 const Profile = (props) => {
@@ -15,10 +15,8 @@ const Profile = (props) => {
         <img className={styles.content_img} src="https://wallpapercave.com/wp/Jg14FgM.jpg"/>
       </div>
       <ProfileInfo profilePhoto={profilePhoto}/>
-      <MyPosts 
-        posts={props.profilePage.posts}
-        newPostText={props.profilePage.newPostText}
-        dispatch={props.dispatch}
+      <MyPostsContainer
+        store = {props.store}
       />
    </div>)
 }
