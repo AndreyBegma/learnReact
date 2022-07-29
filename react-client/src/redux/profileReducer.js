@@ -14,26 +14,28 @@ let addPost = (state) =>{
           id:5,
           message: state.newPostText
      }
-     state.posts.push(newPost)
-     state.newPostText = ''
+     let copyState = {...state}
+     copyState.posts = [...state.posts]
+     copyState.posts.push(newPost)
+     copyState.newPostText = ''
+     return copyState
      //this._callSubscriber(this._state)
 }
 let updateNewPost = (state,newText) =>{
-     state.newPostText = newText
+     let copyState = {...state}
+     copyState.newPostText = newText
+     return copyState
      //this._callSubscriber(this._state)
 }
 
 export const profileReducer = (state = initialState, action) => {
      switch(action.type){
           case ADD_POST:
-               {addPost(state)
-               return state}
+               {return addPost(state)}
           case UPDATE_NEW_POST_TEXT: 
-               {updateNewPost(state, action.newText)
-               return state}
+               {return updateNewPost(state, action.newText)}
           default: 
-               {console.log('Error in profile reducer')
-               return state}
+               {return state}
      }
 }
 

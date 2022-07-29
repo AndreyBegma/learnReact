@@ -12,7 +12,14 @@ import store from './redux/redux-store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-export let reRednderEntireTree = (state) => {     
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </React.StrictMode>  
+   ) 
+/*export let reRednderEntireTree = (store) => {     
      root.render(
     <React.StrictMode>
       <Provider store={store}>
@@ -24,10 +31,10 @@ export let reRednderEntireTree = (state) => {
 
 reRednderEntireTree(store.getState()) 
 
-store.subscribe(() => {
+/*store.subscribe(() => {
   let state = store.getState()
   console.log(store.getState())
   reRednderEntireTree(state)
-})
+})*/
 
 reportWebVitals();
