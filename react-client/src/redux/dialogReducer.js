@@ -14,23 +14,30 @@ let initialState = {
 }
 
 let updateNewMessageBody = (state, body) => {
-     state.newMessageText = body
+     let copyState = {...state}
+     copyState.newMessageText = body
+     return copyState 
     //this._callSubscriber(this._state)
 }
 let sendMessage = (state) => {
      let body = state.newMessageText
-     state.newMessageText = ''
-     state.messages.push({id:4, message:body})
-     //this._callSubscriber(this._state)
+     let copyState = {...state}
+     copyState.newMessageText = ''
+     copyState.messages = [...state.messages]
+     copyState.messages.push({id:404, message:body})
+     return copyState
 }
 
 export const dialogsReducer = (state = initialState, action) => {
+     let copyState 
      if (action.type === UPDATE_NEW_MESSAGE_BODY){
-          updateNewMessageBody(state,action.body)
+          copyState = updateNewMessageBody(state,action.body)
      } else if (action.type === SEND_MESSAGE){
-          sendMessage(state)
+          copyState = sendMessage(state)
+     } else {
+          copyState = state
      }
-     return state
+     return copyState
 }
 
 export const sendMessageCreator = () => ({type:SEND_MESSAGE})
