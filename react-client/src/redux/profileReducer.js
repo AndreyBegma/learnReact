@@ -6,12 +6,12 @@ let initialState = {
           {id:1, message:'Hi, how are you?'},
           {id:2, message:'It is my first post'}
      ],
-     newPostText:'Write new post'
+     newPostText:''
 }
 
 let addPost = (state) =>{
      let newPost = {
-          id:5,
+          id:state.posts.length + 1,
           message: state.newPostText
      }
      let copyState = {...state}
